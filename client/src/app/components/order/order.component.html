@@ -1,0 +1,23 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="div-order-details">
+      <app-order-details></app-order-details>
+    </div>
+  </mat-drawer>
+  <a
+    ><button
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="drawer.toggle()"
+    >
+      Order
+    </button></a
+  >
+  <div class="search">
+    <app-search-products-order></app-search-products-order>
+  </div>
+  <div class="div-cart">
+    <app-cart-order></app-cart-order>
+  </div>
+</mat-drawer-container>

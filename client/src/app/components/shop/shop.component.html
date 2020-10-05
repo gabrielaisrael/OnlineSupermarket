@@ -1,0 +1,13 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+  <app-cart></app-cart>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      My Cart
+    </button>
+  </div>
+  <div class="div-product-list">
+    <app-product-list></app-product-list>
+    </div>
+</mat-drawer-container>

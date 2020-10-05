@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>Supermarket</div>
+  <div *ngIf="this._ss.isLogin">Hello {{ this._ss.firstname }}</div>
+  <button mat-raised-button *ngIf="this._ss.isLogin" (click)="logout()">
+    Logout
+  </button>
+  <div>
+    <span>supermarket@supermarket.com</span>
+    <br />
+    <span>Tel: 037745678</span>
+  </div>
+</mat-toolbar>

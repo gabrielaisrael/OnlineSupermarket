@@ -1,0 +1,7 @@
+
+  "moshe"'s Receipt:
+
+
+Product: Banana per Kg   Quantity: 3    Price: 10 ₪     Sum: 30
+
+Total: 30 ₪    

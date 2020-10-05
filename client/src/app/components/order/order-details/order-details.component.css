@@ -1,0 +1,10 @@
+button {
+  width: 30%;
+  margin-left: 30%;
+  margin-right: 30%
+}
+
+.order-title {
+  text-align: center;
+  font-size: 25px;
+}

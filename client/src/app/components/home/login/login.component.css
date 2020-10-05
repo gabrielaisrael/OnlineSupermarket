@@ -1,0 +1,8 @@
+.example-card{
+    top:20px;
+    left: 4%;
+    width: 17vw;
+    border:solid 2px rgb(36, 36, 83);
+    text-align: center;
+    float:center;
+}

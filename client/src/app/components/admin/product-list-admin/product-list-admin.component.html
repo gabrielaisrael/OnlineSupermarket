@@ -1,0 +1,37 @@
+<ul class="product-list">
+  <a>
+    <li
+      class="product-list-categories"
+      *ngFor="let category of categories"
+      id="{{ category.id }}"
+      (click)="getId($event)"
+    >
+      {{ category.category }}
+    </li>
+  </a>
+</ul>
+
+<hr />
+
+<a (click)="onSelect(product)" *ngFor="let product of products">
+  <mat-card class="product-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ product.productName }}</mat-card-title>
+      <mat-card-subtitle>{{
+        product.price | currency: "ILS"
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      class="product-img"
+      mat-card-image
+      src="{{ product.img_url }}"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p></p>
+    </mat-card-content>
+  </mat-card>
+</a>
+
+<router-outlet></router-outlet>

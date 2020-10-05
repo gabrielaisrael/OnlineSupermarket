@@ -1,0 +1,18 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <app-add-product-admin></app-add-product-admin>
+  </mat-drawer>
+  <div>
+    <a
+      ><button type="button" mat-button (click)="drawer.toggle()">
+        Add Product
+      </button></a
+    >
+  </div>
+  <div class="div-form-edit">
+    <app-edit-admin></app-edit-admin>
+  </div>
+  <div class="div-product-list">
+    <app-product-list-admin></app-product-list-admin>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,29 @@
+<div class="example-container">
+  <form  (ngSubmit)="edit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input [(ngModel)]="_as.productVal.productName" name="productName" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="_as.productVal.category_id"   name="category_id">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input [(ngModel)]="_as.productVal.price" name="price" type="number" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Image Url</mat-label>
+      <input [(ngModel)]="_as.productVal.img_url" name="img_url" matInput>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit"> SAVE </button>
+  </form>
+</div>

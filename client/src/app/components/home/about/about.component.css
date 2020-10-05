@@ -1,0 +1,10 @@
+.about{
+    max-width: 70%;
+    float:center;
+    top:10px;
+    left: 15%;
+    width: 30vw;
+    border:solid 2px rgb(36, 36, 83);
+    text-align: center;
+}
+

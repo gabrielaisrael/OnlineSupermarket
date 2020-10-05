@@ -1,0 +1,34 @@
+table {
+  width: 100%;
+}
+
+.example-container {
+  height: 270px;
+  overflow: auto;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
+}
+
+img {
+  width: 50px;
+  height: 30px;
+}
+
+button {
+  text-align: center;
+}
+
+.total {
+  margin: 20px;
+  text-align: justify;
+}
+
+.exist {
+  background-color: yellow;
+}

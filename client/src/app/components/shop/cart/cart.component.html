@@ -1,0 +1,56 @@
+<!--
+ <mat-form-field>
+   <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. banana">
+  </mat-form-field>  -->
+<div class="example-container">
+  <div class="btn-delete-all" *ngFor="let product of products">
+    <button mat-button (click)="btnDeleteAllProducts(product.cart_id)">
+      Empty Cart
+    </button>
+  </div>
+  <table mat-table [dataSource]="products" matSort>
+    <ng-container matColumnDef="img_url">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let product">
+        <img [src]="product.img_url" />
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td mat-cell *matCellDef="let product">{{ product.productName }}</td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let product">{{ product.quantity }}</td>
+      <!-- <td mat-footer-cell *matFooterCellDef> Total </td> -->
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="sum_price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let product">
+        {{ product.sum_price | currency: "ILS" }}
+      </td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let product">
+        <button (click)="deleteProduct(product.id, product.cart_id)" mat-button>
+          X
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <div class="total">Total: {{ total | currency: "ILS" }}</div>
+  <button class="btn-order" mat-button (click)="toOrder()">Order</button>
+</div>

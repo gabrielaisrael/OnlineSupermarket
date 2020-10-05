@@ -1,0 +1,52 @@
+<ul class="product-list">
+  <div>
+    <input
+      matInput
+      name="productName"
+      [(ngModel)]="productName"
+      placeholder="Ex. Milk"
+      value="Search"
+    />
+    <button mat-button (click)="searchProduct(productName)">
+      <mat-icon aria-hidden="false" aria-label="Example search icon"
+        >search</mat-icon
+      >
+    </button>
+  </div>
+  <a
+    ><li
+      class="product-list-categories"
+      *ngFor="let category of categories"
+      id="{{ category.id }}"
+      (click)="getId($event)"
+    >
+      {{ category.category }}
+    </li></a
+  >
+  <hr />
+</ul>
+<div class="card">
+  <mat-card class="product-card" *ngFor="let product of products">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ product.productName }}</mat-card-title>
+      <mat-card-subtitle>{{
+        product.price | currency: "ILS"
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      class="product-img"
+      mat-card-image
+      src="{{ product.img_url }}"
+      alt="product.img"
+    />
+    <mat-card-content>
+      <p></p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="addToCart(product)">ADD TO CART</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>

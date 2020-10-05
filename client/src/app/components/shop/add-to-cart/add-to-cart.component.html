@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Quantity Product</h2>
+<mat-dialog-content>{{data.name}}</mat-dialog-content>
+<img class="popup-img" mat-card-image src="{{data.image}}" alt="{{data.name}}">
+<mat-dialog-content>{{data.price | currency: "ILS"}}</mat-dialog-content>
+
+<mat-label>Quantity</mat-label>
+<input min="1"  [(ngModel)]="quantity" type="number" MatInput />
+<!-- {{data.price*amount).toFixed(2)}}$ -->
+
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Close</button>
+    <button mat-raised-button mat-dialog-close [mat-dialog-close]="quantity">Add To My
+        Cart</button>
+</mat-dialog-actions>
+
+<!-- (click) = "AddAmount()" -->
+<!-- (click)= "addProductToCart()" -->

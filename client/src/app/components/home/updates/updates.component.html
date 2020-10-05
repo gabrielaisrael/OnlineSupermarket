@@ -1,0 +1,35 @@
+<mat-card class="updates">
+  <img
+    mat-card-image
+    src="https://api.time.com/wp-content/uploads/2019/03/ghostsupermarket.jpg?w=800&quality=85"
+    alt="Supermarket pic"
+  />
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Updates</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ sumProducts.products_cnt }} products avaibles in supermarket</p>
+
+    <p>{{ sumOrders.orders_cnt }} orders submitted in supermarket.</p>
+
+    <p
+      *ngIf="this._ss.hasCart && this._ss.isLogin"
+      [ngStyle]="{ 'background-color': 'yellow' }"
+    >
+      You have open cart from {{ this._ss.dateCreated | date }}.
+    </p>
+    <p
+      *ngIf="this._ss.submittedOrder && this._ss.isLogin && !this._ss.hasCart"
+      [ngStyle]="{ 'background-color': 'yellow' }"
+    >
+      Your Last purchase was on {{ this._ss.orderDate | date }}
+    </p>
+    <p
+      *ngIf="!this._ss.hasCart && this._ss.isLogin && !this._ss.submittedOrder"
+      [ngStyle]="{ 'background-color': 'yellow' }"
+    >
+      Welcome {{ this._ss.firstname }} to your first purchase in Supermarket!
+    </p>
+  </mat-card-content>
+</mat-card>

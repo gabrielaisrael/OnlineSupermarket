@@ -1,0 +1,9 @@
+.updates{
+    max-width: 400px;
+    float:center;
+    top:10px;
+    left: 4%;
+    width: 17vw;
+    border:solid 2px rgb(36, 36, 83);
+    text-align: center;
+}

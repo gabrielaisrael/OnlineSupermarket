@@ -1,0 +1,70 @@
+<div class="order-title">Order</div>
+<br />
+<div>Shipping Details:</div>
+<hr />
+<form class="example-form" [formGroup]="formGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>City</mat-label>
+    <mat-select formControlName="cityShipping" required>
+      <mat-option
+        *ngFor="let city of cities"
+        [value]="city.name"
+        (dblclick)="getValue()"
+        >{{ city.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Street</mat-label>
+    <input
+      matInput
+      formControlName="stretShipping"
+      (dblclick)="getValue()"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Shipping Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="toDate"
+            (dateChange)="onSelectDate()"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>Payments:</div>
+        <hr />
+        <mat-form-field appearance="fill">
+          <mat-label>Credit Card</mat-label>
+          <input matInput formControlName="creditCard" required />
+        </mat-form-field>
+        <p
+          *ngIf="
+            !formGroup.controls.creditCard.valid &&
+            formGroup.controls.creditCard.touched
+          "
+        >
+          Oops! This Credit Card seems to be invalid.
+        </p>
+        <br />
+        <button mat-raised-button color="primary" (click)="submitOrder()">
+          Submit
+        </button>
+      </td>
+    </tr>
+  </table>
+</form>

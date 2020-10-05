@@ -1,0 +1,37 @@
+table {
+  width: 80%;
+  height: 20%;
+}
+
+.example-container {
+  height: 100%;
+  overflow: auto;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
+}
+
+img {
+  width: 50px;
+  height: 30px;
+}
+
+.btn-delete-all {
+  width: 30%;
+  margin-left: 70%;
+  margin-right: 90%;
+}
+
+.btn-order {
+  text-align: center;
+}
+
+.total {
+  margin: 20px;
+  text-align: justify;
+}

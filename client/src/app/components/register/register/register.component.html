@@ -1,0 +1,145 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Step 1</ng-template>
+      <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="" formControlName="number_id" required />
+        <!-- <mat-error *ngIf="firstFormGroup.hasError('required')">
+         Id is required!
+       </mat-error> -->
+
+        <mat-error *ngIf="firstFormGroup.controls.number_id.invalid">{{
+          getErrorMessageId()
+        }}</mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="name@email.com"
+          formControlName="email"
+          required
+          email
+        />
+        <mat-error *ngIf="firstFormGroup.controls.email.invalid">{{
+          getErrorMessageEmail()
+        }}</mat-error>
+        <mat-error *ngIf="firstFormGroup.controls.email.invalid">{{
+          getErrorMessageEmailIncorrect()
+        }}</mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder=""
+          type="password"
+          formControlName="password"
+          required
+        />
+        <mat-error *ngIf="firstFormGroup.controls.password.invalid">{{
+          getErrorMessagePassword()
+        }}</mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          placeholder=""
+          type="password"
+          formControlName="confirm_password"
+          [errorStateMatcher]="confirmErrorMatcher"
+          required
+        />
+        <mat-error
+          >Error: {{ getErrorMessageConfirmPassword("password") }}</mat-error
+        >
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext (click)="toNextStep()">Next</button>
+      </div>
+
+      <div>
+        {{ errorId }}
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Step 2</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <mat-select formControlName="city" required>
+          <mat-option *ngFor="let city of cities" [value]="city.name">{{
+            city.name
+          }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="secondFormGroup.controls.city.invalid">{{
+          getErrorMessageCity()
+        }}</mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Street</mat-label>
+        <input
+          matInput
+          placeholder="Ex. 1 Main St"
+          formControlName="street"
+          required
+        />
+        <mat-error *ngIf="secondFormGroup.controls.street.invalid">{{
+          getErrorMessageStreet()
+        }}</mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Firstname</mat-label>
+        <input
+          matInput
+          placeholder="Firstname"
+          formControlName="firstname"
+          required
+        />
+        <mat-error *ngIf="secondFormGroup.controls.firstname.invalid">{{
+          getErrorMessageFirstname()
+        }}</mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>lastname</mat-label>
+        <input
+          matInput
+          placeholder="Lastname"
+          formControlName="lastname"
+          required
+        />
+        <mat-error *ngIf="secondFormGroup.controls.lastname.invalid">{{
+          getErrorMessageLastname()
+        }}</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext (click)="submit()">Next</button>
+      </div>
+
+      <!-- <div errorMessage="Address is required." >
+
+        </div> -->
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+    <button mat-button [routerLink]="['']">To Login</button>
+  </mat-step>
+</mat-horizontal-stepper>
+<router-outlet></router-outlet>

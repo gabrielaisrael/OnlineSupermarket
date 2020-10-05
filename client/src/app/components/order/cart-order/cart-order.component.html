@@ -1,0 +1,47 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="products" matSort>
+    <ng-container matColumnDef="img_url">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let product">
+        <img [src]="product.img_url" />
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td
+        mat-cell
+        *matCellDef="let product"
+        [ngClass]="
+          product.productName.toUpperCase().includes(_os.name.toUpperCase()) &&
+          _os.name != ''
+            ? 'exist'
+            : ''
+        "
+      >
+        {{ product.productName }}
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let product">{{ product.quantity }}</td>
+      <!-- <td mat-footer-cell *matFooterCellDef> Total </td> -->
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="sum_price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let product">
+        {{ product.sum_price | currency: "ILS" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <div class="total">Total: {{ total | currency: "ILS" }}</div>
+  <button mat-button routerLink="/allproducts">Back to Shop</button>
+</div>
